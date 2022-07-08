@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>login</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+<h2>管理员账号注册</h2>
+
+<form method='POST'>{% csrf_token %}
+<p>请输入注册信息</p>
+<p>
+    <label for="unid">用户名:</label>
+    <input name='username'  required id='unid'>
+</p>{{ registerform.errors.username }}
+<p>
+    <label for="psid1">密码1:</label>
+    <input type='password' name='password1'  required id='psid1'>
+</p>{{ registerform.errors.password1 }}
+<p>
+    <label for="psid2">密码2:</label>
+    <input type='password' name='password2'  required id='psid2'>
+</p>{{ registerform.errors.password2 }}
+<p>
+    <label for="nid">名字:</label>
+    <input name ='personname'  required id='nid'>
+</p>{{ registerform.errors.name }}
+<p>
+    <label for="idid">员工号:</label>
+    <input name ='pID'  required id='idid'>
+</p>{{ registerform.errors.ID }}
+<p>
+    <label for="gid">性别:</label>
+    <input name ='gender'  required id='gid'>
+</p>{{ registerform.errors.gender }}
+<p>
+    <label for="aid">年龄:</label>
+    <input name ='age'  required id='aid'>
+</p>{{ registerform.errors.age }}
+<p>
+    <label for="pid">手机号码:</label>
+    <input name ='phone'  required id='pid'>
+</p>{{ registerform.errors.phone }}
+<p>
+    <button type="submit">注册</button>
+</p>
+<div>
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</form>
+
+</body>
+
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>selectstore</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+<div style="font-family: 'Adobe 黑体 Std R';color: black; text-align: center">
+<h2>查询书店</h2>
+
+<form method='GET'>{% csrf_token %}
+<p>请输入关键词</p>
+<p><label for='kw'>关键词: </label>
+    <input name='keyword',id='kw'></p>
+<p><button type="submit">搜索</button></p> 
+<!-- form的位置在哪里？//-->
+
+
+<table  border="2" class="table table-hover table-bordered" style="margin: auto">
+    <thead>
+   <tr>
+       <th>书店id</th>
+       <th>书店名</th>
+       <th>书店电话</th>
+       <th>书店地址</th>
+       <th>拥有者名字</th>
+   </tr>
+   </thead>
+    <tbody>
+    {% for store in list %}
+        <tr>
+            <td> {{ store.storeid }}</td>
+            <td> {{ store.storename }}</td>
+            <td> {{ store.storephone }}</td>
+            <td> {{ store.storeaddress }}</td>
+            <td> {{ store.ownerid.ownername }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</form>
+<div>
+    <a href="{%url 'add_store'%}">添加书店</a>
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>superlogin</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+<h2>欢迎超级管理员登录</h2>
+
+<form method='POST'>{% csrf_token %}
+<p align="center">请输入账号密码</p>
+<p align="center">
+    <label for="unid">用户名:</label>
+    <input name='用户名',id='unid'>
+</p>
+<p align="center">
+    <label for="psid">密码:</label>
+    <input type='password' name='密码',id='psid'>
+</p>
+<p align="center">
+    <button type="submit">登录</button>
+</p>
+<div align="center" >
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>addposs</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+<h2>增加财产所有者</h2>
+
+<form method='POST'>{% csrf_token %}
+<p>请输入信息</p>
+<p>
+    <label for="n">拥有者名字:</label>
+    <input name='name',id='n'>
+</p>
+
+<p>
+    <label for="w">资产数量:</label>
+    <input name='wealth',id='w'>
+</p>
+
+<p>
+    <button type="submit">确定提交</button>
+</p>
+</form>
+<div>
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</body>
+
+
+</html>

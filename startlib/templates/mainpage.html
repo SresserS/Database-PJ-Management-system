@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mainpage</title>
+<base href="/">
+<link type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+    
+        <div style="font-size: 20px;">
+            <br>
+            <a href="{%url 'login'%}">普通管理员登录</a>
+            <a href="{%url 'superlogin'%}">超级管理员登录</a>
+            <a href="{%url 'logout'%}">登出</a>
+            <a href="{%url 'register'%}">注册</a>
+        </div>
+        <div style="font-size: 20px;">
+            <br>
+            <a href="http://127.0.0.1:8000/admin/">权限管理</a>
+        </div>
+    <div style="font-family: 'Adobe 黑体 Std R';color: black; text-align: center">
+    <img  src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp4.itc.cn%2Fq_70%2Fimages03%2F20210527%2F5f50295f05c041399f477b619e772cb7.jpeg&refer=http%3A%2F%2Fp4.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1654093123&t=232c255e4a42a3023adbd3a1d2f380a3" width=480 height=360 />
+    <h2 align="center">您好，图书销售管理员！</h2>
+    <h3 align="center">忙碌的工作开始了呢！<img  src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.tukuppt.com%2Fpng_preview%2F00%2F19%2F83%2FNB7bDYseIM.jpg%21%2Ffw%2F780&refer=http%3A%2F%2Fimg.tukuppt.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1654528344&t=a0c869266840dbfa1e9ee41c5293a9c1" width=36 height=36/></h2>
+    </div>
+    <br>
+    <div align="center" style="font-size: 18px;">
+    <a href="{%url 'select_admin'%}">员工管理</a>
+    <a href="{%url 'select_books'%}">图书</a>
+    <a href="{%url 'select_inbooks'%}">进货</a>
+    <a href="{%url 'add_sale'%}">销售</a>
+    <a href="{%url 'select_store'%}">书店</a>
+    <a href="{%url 'select_finance'%}">账单</a>
+    <a href="{%url 'select_owner'%}">资产</a>
+    </div>
+    
+    <br>
+    <br>
+    <p align="center">当当网近期好评榜如下，努力工作挑选好书进货哦！</p>
+    <table border="2"  class="table table-hover table-bordered">
+    <thead>
+   <tr>
+       <th>编号</th>
+       <th>图书缩略图</th>
+       <th>书名</th>
+       <th>推荐指数</th>
+       <th>作者</th>
+       <th>五星评分次数</th>
+       <th>价格</th>
+   </tr>
+   </thead>
+    <tbody>
+    {% for book in items %}
+        <tr>
+            <td> {{ book.index }}</td>
+            <td><img  src={{ book.image }} /></td>
+            <td> {{ book.title }}</td>
+            <td> {{ book.recommend }}</td>
+            <td> {{ book.author }}</td>
+            <td> {{ book.times }}</td>
+            <td> {{ book.price }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+</body>
+
+
+</html>

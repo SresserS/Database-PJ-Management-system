@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>addbooks</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+<h2>增加账单记录</h2>
+
+<form method='POST'>{% csrf_token %}
+<p>请输入账单信息</p>
+<p>
+    <label for="b">书本编号:</label>
+    <input name='bookid',id='b'>
+</p>
+
+<p>
+    <label for="fn">数量:</label>
+    <input name='fnum',id='fn'>
+</p>
+
+<p>
+    <label for="fs">收入/支出?:</label>
+    <input name='fstate',id='fs'>
+</p>
+
+<p>
+    <button type="submit">确定提交</button>
+</p>
+</form>
+<div>
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</body>
+
+
+</html>

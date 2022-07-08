@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>inbooks</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+<h2>图书进货</h2>
+
+<form method='POST'>{% csrf_token %}
+<p>请输入进货信息</p>
+<p>
+    <label for="ISBN">ISBN编号:</label>
+    <input name='ISBN',id='ISBN' value="{{ aimbook.ISBN }}">
+</p>
+
+<p>
+    <label for="n">书名:</label>
+    <input name='name',id='n' value="{{ aimbook.name }}">
+</p>
+
+<p>
+    <label for="pu">出版社:</label>
+    <input name='publisher',id='pu' value="{{ aimbook.publisher }}">
+</p>
+
+<p>
+    <label for="au">作者:</label>
+    <input name='author',id='pu' value="{{ aimbook.author }}">
+</p>
+
+<p>
+    <label for="pr">进货价:</label>
+    <input name='inprice',id='pr' >
+</p>
+
+<p>
+    <label for="in">进货数量:</label>
+    <input name='innum',id='in'>
+</p>
+<p>
+    <label for="pu">书店id:</label>
+    <input name='storeid',id='pu'>
+</p>
+
+<p>
+    <button type="submit">确定提交</button>
+</p>
+</form>
+<div >
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</body>
+
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>updateadmin</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+<h2>修改您的信息</h2>
+<p>管理员仅能修改自己信息,需要输入账号密码验证</p>
+<form method='POST'>
+{% csrf_token %}
+<p>请输入您的信息</p>
+
+<p>
+    <label for="bid">用户名:</label>
+    <input name='username' id='bid'></p>
+<p>
+    <label for="ISBN">密码:</label>
+    <input type='password' name='password' id='ISBN' ></p>
+<p>
+    <label for="n">姓名:</label>
+    <input name='name' id='n'  value="{{ adm.name }}"></p>
+<p>
+    <label for="pu">ID:</label>
+    <input name='ID' id='pu' value="{{ adm.ID }}"></p>
+<p>
+    <label for="a">性别:</label>
+    <input name='gender' id='a'  value="{{ adm.gender }}"></p>
+<p>
+    <label for="pr">年龄:</label>
+    <input name='age' id='pr' value="{{ adm.age }}"></p>
+<p>
+    <label for="sn">电话号码:</label>
+    <input name='phone' id='sn'  value="{{ adm.phone }}"></p>
+<p>
+    <button type="submit">确定提交</button></p>
+
+</form>
+<div>
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+
+
+</body>
+
+
+</html>

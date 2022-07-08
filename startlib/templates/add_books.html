@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>addbooks</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+<h2>增加书籍</h2>
+
+<form method='POST'>
+{% csrf_token %}
+<p>请输入图书信息</p>
+<p>
+    <label for="ISBN">ISBN编号:</label>
+    <input name='ISBN',id='ISBN'>
+</p>
+
+<p>
+    <label for="n">书名:</label>
+    <input name='name',id='n'>
+</p>
+
+<p>
+    <label for="pu">出版商:</label>
+    <input name='publisher',id='pu'>
+</p>
+
+<p>
+    <label for="a">作者:</label>
+    <input name='author',id='a'>
+</p>
+
+<p>
+    <label for="pr">零售价:</label>
+    <input name='price',id='pr'>
+</p>
+
+<p>
+    <label for="sn">数量:</label>
+    <input name='storenum',id='sn'>
+</p>
+
+<p>
+    <button type="submit">确定提交</button>
+</p>
+</form>
+<div>
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</body>
+
+
+</html>

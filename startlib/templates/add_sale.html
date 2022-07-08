@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>addsale</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+<h2>增加销售信息</h2>
+
+<form method='POST'>
+{% csrf_token %}
+<p>请输入销售信息</p>
+
+<p>
+    <label for="bid">图书id:</label>
+    <input name='bookid' id='bid' value="{{ aimbook.bookid }}"></p>
+<p>
+    <label for="sn">销售量:</label>
+    <input name='salenum' id='sn' ></p>
+<p>
+    <label for="si">书店id:</label>
+    <input name='storeid' id='si' ></p>
+<p>
+    <label for="c">顾客:</label>
+    <input name='customer' id='c' ></p>
+<p>
+    <label for="sp">价格:</label>
+    <input name='saleprice' id='sp' ></p>
+<p>
+    <button type="submit">确定提交</button></p>
+</form>
+
+<div>
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+
+</body>
+
+
+</html>

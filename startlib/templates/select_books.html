@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>selectbooks</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+    <div style="font-family: 'Adobe 黑体 Std R';color: black; text-align: center">
+<h2>查询书籍</h2>
+
+<form method='GET'>{% csrf_token %}
+<p>请输入关键词,所有输入框均可选择输入,最终结果为交集</p>
+<p><label for='kw'>关键词: </label>
+    <input name='关键词',id='kw'></p>
+
+<p><label for="bid">书籍编号:</label>
+    <input name='bookid',id='bid'>
+<label for="ISBN">ISBN:</label>
+    <input name='ISBN',id='ISBN'>
+<label for="n">书名:</label>
+    <input name='name',id='n'>
+<label for="pu">出版社:</label>
+    <input name='publisher',id='pu'>
+<label for="a">作者:</label>
+    <input name='author',id='a'>
+<label for="pr">价格:</label>
+    <input name='price',id='pr'>
+<label for="sn">数量:</label>
+    <input name='storenum',id='sn'>
+<p><button type="submit">搜索</button></p> 
+
+<!-- form的位置在哪里？//-->
+
+<table border="2"  class="table table-hover table-bordered" style="margin: auto">
+    <thead>
+   <tr>
+       <th>书籍id</th>
+       <th>ISBN</th>
+       <th>书名</th>
+       <th>出版社</th>
+       <th>作者</th>
+       <th>零售价格</th>
+       <th>库存数量</th>
+       <th>操作</th>
+   </tr>
+   </thead>
+    <tbody>
+    {% for book in booklist %}
+        <tr>
+            <td> {{ book.bookid }}</td>
+            <td> {{ book.ISBN }}</td>
+            <td> {{ book.name }}</td>
+            <td> {{ book.publisher }}</td>
+            <td> {{ book.author }}</td>
+            <td> {{ book.price }}</td>
+            <td> {{ book.storenum }}</td>
+            <td>
+                <a href="/startlib/update_books/?bookid={{ book.bookid }}">修改</a>
+                <a href="/startlib/delete_books/?bookid={{ book.bookid }}">删除</a>
+                <a href="/startlib/inbooks/?bookid={{ book.bookid }}">进货</a>
+            </td><!-- 链接使用？//-->
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<p></p>
+    <div >
+        <a href="{%url 'add_books'%}">添加书籍</a>
+        </div>
+<p></p>
+<div >
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</form>
+</div>
+</body>
+
+</html>

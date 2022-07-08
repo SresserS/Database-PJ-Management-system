@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>selectinbooks</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+    <div style="font-family: 'Adobe 黑体 Std R';color: black; text-align: center">
+<h2>查询进货书籍</h2>
+
+<form method='GET'>{% csrf_token %}
+<p>请输入关键词</p>
+<p><label for='kw'>关键词: </label>
+    <input name='keyword',id='kw'></p>
+<p><button type="submit">搜索</button></p> 
+<!-- form的位置在哪里？//-->
+
+<table  border="2" class="table table-hover table-bordered" style="margin: auto">
+    <thead>
+   <tr>
+       <th>进货id</th>
+       <th>图书id</th>
+       <th>进货价格</th>
+       <th>进货数量</th>
+       <th>状态</th>
+       <th>商店id</th>
+   </tr>
+   </thead>
+    <tbody>
+    {% for book in list %}
+        <tr>
+            <td> {{ book.incomeid }}</td>
+            <td> {{ book.bookid.bookid }}</td>
+            <td> {{ book.inprice }}</td>
+            <td> {{ book.innum }}</td>
+            <td> {{ book.state }}</td>
+            <td> {{ book.storeid.storeid }}</td>
+            <td>
+                <a href="/startlib/inbooks_pay/?id={{ book.incomeid }}">付款</a>
+                <a href="/startlib/inbooks_cancel/?id={{ book.incomeid }}">退货</a>
+                <a href="/startlib/trans_income_to_books/?id={{ book.incomeid }}">移入库存</a>
+            </td><!-- 链接使用？//-->
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</form>
+<div>
+    <a href="{%url 'inbooks'%}">添加进货</a>
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</div>
+</body>
+
+</html>

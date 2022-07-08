@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>selectowner</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+<div style="font-family: 'Adobe 黑体 Std R';color: black; text-align: center">
+<h2>查询资产</h2>
+
+<form method='GET'>{% csrf_token %}
+<p>请输入关键词</p>
+<p><label for='kw'>关键词: </label>
+    <input name='keyword',id='kw'></p>
+<p><button type="submit">搜索</button></p> 
+<!-- form的位置在哪里？//-->
+
+<table  border="2" class="table table-hover table-bordered" style="margin: auto">
+    <thead>
+   <tr>
+       <th>资产所有人id</th>
+       <th>名字</th>
+       <th>资产</th>
+   </tr>
+   </thead>
+    <tbody>
+    {% for owner in list %}
+        <tr>
+            <td> {{ owner.ownerid }}</td>
+            <td> {{ owner.ownername }}</td>
+            <td> {{ owner.wealth }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</form>
+<div>
+    <a href="{%url 'add_poss'%}">添加资产所有人</a>
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</div>
+</body>
+
+</html>

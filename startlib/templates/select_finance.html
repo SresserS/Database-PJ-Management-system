@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>selectfinance</title>
+</head>
+
+<style>
+
+    body 
+    
+    {
+    
+        background-image:url('http://pic1.win4000.com/wallpaper/2018-06-15/5b236a15bcfc1.jpg');
+    
+        background-color:#cccccc;
+    
+    }
+    
+    </style>
+
+<body>
+    <div style="font-family: 'Adobe 黑体 Std R';color: black; text-align: center">
+<h2>查看账单</h2>
+
+<form method='GET'>{% csrf_token %}
+<p>请输入时间范围</p>
+<p>提示:时间格式为yyyy-mm-dd hh:mm:ss.x</p>
+<p><label for='1'>起始时间: </label>
+    <input name='starttime',id='1'></p>
+<p><label for='2'>终止时间: </label>
+    <input name='endtime',id='2'></p>
+
+<p><button type="submit">搜索</button></p> 
+
+<!-- form的位置在哪里？//-->
+<p>收入记录</p>
+<table border="2"  class="table table-hover table-bordered" style="margin: auto">
+    <thead>
+   <tr>
+       <th>收入编号</th>
+       <th>销售编号</th>
+       <th>商店编号</th>
+       <th>资产拥有者编号</th>
+       <th>收入时间</th>
+       <th>总金额</th>
+   </tr>
+   </thead>
+    <tbody>
+    {% for income in incomelist %}
+        <tr>
+            <td> {{ income.inid }}</td>
+            <td> {{ income.saleid.saleid }}</td>
+            <td> {{ income.storeid.storeid }}</td>
+            <td> {{ income.ownerid.ownerid }}</td>
+            <td> {{ income.incometime }}</td>
+            <td> {{ income.insummoney }}</td>
+            
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<p>支出记录</p>
+<table border="2"  class="table table-hover table-bordered" style="margin: auto">
+    <thead>
+   <tr>
+       <th>支出编号</th>
+       <th>进货编号</th>
+       <th>资产拥有者编号</th>
+       <th>支出时间</th>
+       <th>总金额</th>
+   </tr>
+   </thead>
+    <tbody>
+    {% for outcome in outcomelist %}
+        <tr>
+            <td> {{ outcome.outid }}</td>
+            <td> {{ outcome.incomeid.incomeid }}</td>
+            <td> {{ outcome.ownerid.ownerid }}</td>
+            <td> {{ outcome.outcometime }}</td>
+            <td> {{ outcome.outsummoney }}</td>
+            
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<p></p>
+<div >
+    <a href="{%url 'mainpage'%}">回到主页</a>
+    </div>
+</form>
+</div>
+</body>
+
+</html>
